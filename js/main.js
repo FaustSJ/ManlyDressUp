@@ -3,6 +3,8 @@ var game = new Phaser.Game(800, 664, Phaser.CANVAS, 'game', { preload: preload, 
 
 function preload() {
 	game.load.image('bg', 'assets/background.jpg');
+	game.load.image('intro', 'assets/intro.jpg');
+	game.load.image('start', 'assets/start.png');
 	game.load.image('ammo', 'assets/ammo.png');
 	game.load.image('tank', 'assets/tank.png');
 	game.load.image('beard', 'assets/beard.png');
@@ -26,6 +28,7 @@ function preload() {
 }
 
 var background;
+var start;
 var ammo;
 var ammopick;
 var tank;
@@ -52,6 +55,11 @@ var noother;
 
 
 function create() {
+	
+/*	background = game.add.sprite(0, 0, 'intro');
+	start = game.add.sprite(350, 500, 'intro');
+	start.inputEnabled = true;
+	start.events.onInputDown.add(setup,this);*/
 	
 	background = game.add.sprite(0, 0, 'bg');
 
@@ -119,8 +127,55 @@ function create() {
 	dracula = game.add.sprite(155,51, 'dracula');
 	dracula.visible = false;
 	sailor = game.add.sprite(185,100, 'sailor');
-	sailor.visible = false;
+	sailor.visible = false; 
 }
+/*
+function setup () {
+	background.loadTexture('bg',0);
+	start.kill();
+	
+	ammopick.visible = true;
+	ammopick.inputEnabled = true;
+  	ammopick.events.onInputDown.add(ammof, this);
+  	tankpick.visible = true;
+	tankpick.inputEnabled = true;
+  	tankpick.events.onInputDown.add(tankf, this);
+  	sunglasspick.visible = true;
+  	sunglasspick.inputEnabled = true;
+  	sunglasspick.events.onInputDown.add(sunglassesf, this);
+  	beardpick.visible = true;
+	beardpick.inputEnabled = true;
+  	beardpick.events.onInputDown.add(beardf, this); 
+  	beard2pick.visible = true;
+	beard2pick.inputEnabled = true;
+ 	beard2pick.events.onInputDown.add(beard2f, this);
+ 	weardpick.visible = true;
+	weardpick.inputEnabled = true;
+  	weardpick.events.onInputDown.add(weardf, this);	
+  	mustachepick.visible = true;
+	mustachepick.inputEnabled = true;
+  	mustachepick.events.onInputDown.add(mustachef, this);
+  	cowboypick.visible = true;
+	cowboypick.inputEnabled = true;
+  	cowboypick.events.onInputDown.add(cowboyf, this);
+  	draculapick.visible = true;
+	draculapick.inputEnabled = true;
+  	draculapick.events.onInputDown.add(draculaf, this);
+  	sailorpick.visible = true;
+	sailorpick.inputEnabled = true;
+  	sailorpick.events.onInputDown.add(sailorf, this);
+  	nohair.visible = true;
+	nohair.inputEnabled = true;
+  	nohair.events.onInputDown.add(nohairf, this);
+  	nobeard.visible = true;
+	nobeard.inputEnabled = true;
+  	nobeard.events.onInputDown.add(nobeardf, this);
+  	noother.visible = true;
+	noother.inputEnabled = true;
+  	noother.events.onInputDown.add(nootherf, this);
+	
+
+}*/
 ////////////////////////////////////////////////////////////////////////////////
 //These functions control what the player can and cannot see.
 function ammof () {
